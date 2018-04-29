@@ -38,5 +38,4 @@ For custom settings edit directly the beginnings of the scripts.
  ```0 3 * * fri path/to/download_preroll_trailers.sh``` once a week download trailers
 ```0 3 * * * /path/to/concat_preroll_trailers.sh``` once a day mix the trailers that will be played into Plex.
 - Go to *Plex Settings > Server > Extras* click on the *Show Advanced* and into *"Cinema Trailers pre-roll video"* set */path/to/plex-preroll-trailers/preroll_trailers.mp4*
-
-    
+- Enable in the Plex clients the option to show trailer.
