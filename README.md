@@ -1,5 +1,5 @@
 # Plex-Preroll-Trailers
-Simple and rough set of python script that download trailers for the upcoming/now playing movies in theaters 
+Simple and rough set of python script that download trailers for the upcoming/now playing movies in theaters
 and show it as a preroll video before watch movies in Plex.
 
 ## Why
@@ -34,8 +34,8 @@ For custom settings edit directly the beginnings of the scripts.
 ## Usage
 - *Clone* and *cd* to the repository directory
 - ```sudo chmod +x *.sh```
-- ``` crontab -e ``` for add the bash scripts to *CRON*. Personally i use: 
+- ``` crontab -e ``` for add the bash scripts to *CRON*. Personally i use:
  ```0 3 * * fri path/to/download_preroll_trailers.sh``` once a week download trailers
-```0 3 * * * /path/to/concat_preroll_trailers.sh``` once a day mix the trailers that will be played into Plex.
+```30 3 * * * /path/to/concat_preroll_trailers.sh``` once a day mix the trailers that will be played into Plex.
 - Go to *Plex Settings > Server > Extras* click on the *Show Advanced* and into *"Cinema Trailers pre-roll video"* set */path/to/plex-preroll-trailers/preroll_trailers.mp4*
 - Enable in the Plex clients the option to show trailer.
