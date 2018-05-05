@@ -1,24 +1,20 @@
 #import requests
 from __future__ import unicode_literals
+from ConfigParser import SafeConfigParser
 import json
 import youtube_dl
 import tmdbsimple as tmdb
 import os
 
-###################################################################################
-#	Settings
-###################################################################################
 
-tmdb.API_KEY = "635fa65913bd0eca7a06e6722ca71e1c"
-language = "it-IT"						# Pass a ISO 639-1 value to display translated data for the fields that support it.
-region = "IT"							# Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
-max_trailers = 10						# max number of trailers to download. 
-										# NOTE: change this setting to mix_preroll_trailers.py
-query_region = "ita"					# a string to append at the query for searching localized trailer. ie: 
-							# "<movie name> + trailer + <ita>"
+config = SafeConfigParser()
+config.read('config.ini')
 
-###################################################################################
-
+tmdb.API_KEY = config.get('main', 'tmdb_api_key')
+language = config.get('main', 'language')
+region = config.get('main', 'region')
+max_trailers = int(config.get('trailer', 'max_trailers'))
+query_region = config.get('main', 'query_region')
 
 
 youtube_keys = []
@@ -49,7 +45,7 @@ for s in movies.results:
 		except IndexError:
 			break
 	i = i+1
-	
+
 # Get movies UPCOMING
 movies.upcoming(language=language, region=region)
 
@@ -72,7 +68,7 @@ for s in movies.results:
 			break
 	j = j+1
 
-trailers = sorted(youtube_keys, key=getKey, reverse=True)		
+trailers = sorted(youtube_keys, key=getKey, reverse=True)
 
 
 trailers_filename = {}	#list with the filename of the trailers
@@ -90,10 +86,10 @@ for k in range(0,max_trailers):
 		video=ydl.extract_info(trailers[k][0], download=True)
 		#filename=ydl.prepare_filename(video)
 		trailers_filename[k+1] = filename
-	
+
 
 # Write the filename of the trailers into a JSON file
 print json.dumps(trailers_filename, ensure_ascii=False, sort_keys=True, indent=4)
 with open("preroll_trailers.json", 'w') as f:
 	json.dump(trailers_filename, f)
-f.close	
+f.close

@@ -29,7 +29,7 @@ The script ***concat_preroll_trailers.sh***  takes the chosen videos from the te
 The script ***download_preroll_trailers.sh*** simply remove the old downloaded videos and execute the *download_preroll_trailers.py*.
 
 ## Settings
-For custom settings edit directly the beginnings of the scripts.
+Edit the *config.ini* file, see comments in file.
 
 ## Usage
 - *Clone* and *cd* to the repository directory
