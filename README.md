@@ -8,7 +8,7 @@ For having a theaters-like experience when watching movies in Plex at home.
 ## Requirements
 The heart of the scripts is written in python, so they can work on all platform that have python installed. However there are 2 bash script for Linux/Ubuntu, but they are so simple that can be adapted for other OS.
 
- - Python
+ - Python 2.x (Python 3.x in other branch)
  - [tmdbsimple](https://github.com/celiao/tmdbsimple/blob/master/README.rst)
 ```
 pip install tmdbsimple
