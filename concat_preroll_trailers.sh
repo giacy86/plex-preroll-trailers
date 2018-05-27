@@ -1,4 +1,5 @@
 #!/bin/bash
+export PYTHONIOENCODING=utf-8;
 cd "$(dirname "$0")"
 output="preroll_trailers.mp4"
 

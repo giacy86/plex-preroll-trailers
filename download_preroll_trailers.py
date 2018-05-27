@@ -68,8 +68,8 @@ for s in movies.results:
 			break
 	j = j+1
 
+# Sort the trailers array based on popularity
 trailers = sorted(youtube_keys, key=getKey, reverse=True)
-
 
 trailers_filename = {}	#list with the filename of the trailers
 k = 0
@@ -82,10 +82,11 @@ for k in range(0,max_trailers):
 		'default_search': 'ytsearch1:',
 		'restrict-filenames': 'TRUE',
 		}
-	with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-		video=ydl.extract_info(trailers[k][0], download=True)
-		#filename=ydl.prepare_filename(video)
-		trailers_filename[k+1] = filename
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            print("Downloading "+trailers[k][0])
+            video=ydl.extract_info(trailers[k][0], download=True)
+            #filename=ydl.prepare_filename(video)
+            trailers_filename[k+1] = filename
 
 
 # Write the filename of the trailers into a JSON file
