@@ -81,6 +81,7 @@ for k in range(0,max_trailers):
 		'format': 'best[ext=mp4]',
 		'default_search': 'ytsearch1:',
 		'restrict-filenames': 'TRUE',
+		'ignoreerrors': 'TRUE',
 		}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             print("Downloading "+trailers[k][0])
